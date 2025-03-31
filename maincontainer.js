@@ -44,25 +44,19 @@ document.addEventListener("mouseup", () => {
 });
 
 homeIcon?.addEventListener("click", function () {
-    console.log("🔍 Home icon clicked - resetting window");
+    console.log("🔍 Home icon clicked - resetting window position");
 
-    // Reset window position to center
-    const windowWidth = windowContainer.offsetWidth;
-    const windowHeight = windowContainer.offsetHeight;
-    const centerX = (window.innerWidth - windowWidth) / 2;
-    const centerY = (window.innerHeight - windowHeight) / 2;
-
-    // Show and position window
+    // Show and position window at top-left
     windowContainer.style.display = "flex";
     windowContainer.style.position = "absolute";
-    windowContainer.style.left = `${centerX}px`;
-    windowContainer.style.top = `${centerY}px`;
-
+    windowContainer.style.left = "-10";
+    windowContainer.style.top = "-10";
+    
     // Reset view state to categories
     const categoriesView = document.querySelector('.categories-view');
     const threadsView = document.querySelector('.threads-view');
     const messagesView = document.querySelector('.messages-view');
-
+    
     if (categoriesView) categoriesView.classList.remove('hidden');
     if (threadsView) threadsView.classList.add('hidden');
     if (messagesView) messagesView.classList.add('hidden');
@@ -73,7 +67,7 @@ homeIcon?.addEventListener("click", function () {
     windowContent.style.display = "flex";
     windowContent.style.opacity = "1";
 
-    console.log("✅ Window reset and centered");
+    console.log("✅ Window reset to top-left position");
 });
 
 // Close button functionality - Hide window
