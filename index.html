@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixelArcade - RetroChat</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="forum.css">
+    <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons/ionicons.esm.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="pixeltalk-navbar">
+        <div class="pixeltalk-logo">
+            <span>PixelTalk</span>
+        </div>
+        <div class="sign-in-button">Sign in for a good time</div>
+
+        <div class="navbar-controls">
+            <span class="volume-icon" onclick="toggleMute()"></span>
+            <audio id="audio" src="your-audio-file.mp3"></audio>
+            <div class="time-display">22:10</div>
+            <div class="date-display">Sun 30 Mar 1997</div>
+        </div>
+    </div>
+    <div class="crt">
+        <div class="main-content">
+            <div class="window-container">
+                <div class="window-header">
+                    <div class="window-buttons">
+                        <ion-icon class="window-button minimize" name="close-outline"></ion-icon>
+                        <ion-icon class="window-button maximize" name="chevron-up-outline"></ion-icon>
+                    </div>
+                    <span data-v-2c6ed106="" class="spacer">
+                        <i data-v-2c6ed106=""></i>
+                        <i data-v-2c6ed106=""></i>
+                        <i data-v-2c6ed106=""></i>
+                    </span>
+                    <div class="window-title">PixelTalk</div>
+                </div>
+                <div class="window-content">
+                    <img src="/img/people.jpg" alt="Arcade view" class="main-image">
+                    <div class="welcome-overlay">
+                        <div class="welcome-text">WELCOME TO </div>
+                        <div class="welcome-logo">PixelTalk</div>
+                    </div>
+                </div>
+                <div class="window-footer">
+                    <div class="footer-icons">
+                        <div class="icon-item">
+                            <img class=""
+                                src="/img/music">
+                            <div class="icon-text">Music</div>
+
+                        </div>
+                        <div class="icon-item">
+                            <img class="notes chatimg" src="/img/chat.png"></img>
+                            <div class="icon-text">Chatroom</div>
+                        </div>
+                        <div class="icon-item">
+                            <img class="notes noteimg" src="/img/notes.png"></img>
+                            <div class="icon-text">Notes</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="side-icons">
+        <div class="homeicon side-icon">
+            <div class="side-icon-img ">
+                <img class="notes noteimg" src="/img/notes.png"></img>
+
+            </div>
+            <span>Home</span>
+        </div>
+        
+        <div class="side-icon">
+            <div class="side-icon-img music-icon">
+                <img
+                    src="/img/music"></img>
+
+            </div>
+            <span>Music</span>
+        </div>
+        <div class="side-icon">
+            <div class="side-icon-img LinkedIn-icon">
+                <img class='noteimg' src="/img/linkedin"></img>
+
+            </div>
+            <span>LinkedIn</span>
+        </div>
+        <div class="side-icon">
+            <div class="side-icon-img about-icon">
+                <img class="notes noteimg" src="/img/notes.png"></img>
+            </div>
+            <span>About</span>
+        </div>
+
+    </div>
+    </div>
+    <!-- Sign-In Modal -->
+    <div id="auth-modal" class="model">
+        <div class="model-content">
+            <!-- Draggable header -->
+            <div class="login-head">
+                <span class="window-button  close-button minimize">&times;</span>
+                <h2>Login</h2>
+            </div>
+
+            <span data-v-2c6ed106="" class="spacer2">
+                <i data-v-2c6ed106=""></i>
+                <i data-v-2c6ed106=""></i>
+                <i data-v-2c6ed106=""></i>
+            </span>
+
+            <form id="auth-form">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit">Sign In</button>
+
+                <p>Don't have an account? <a href="#">Sign Up</a></p>
+            </form>
+        </div>
+    </div>
+    <!-- Chatroom -->
+    <div class="chatroom">
+        <div class="chat-content">
+            <div class="chat-container">
+                <div class="chat-header">
+                    <div class="chat-buttons">
+                        <ion-icon class="chat-button minimize2" name="close-outline"></ion-icon>
+                        <ion-icon class="chat-button maximize2" name="chevron-up-outline"></ion-icon>
+                    </div>
+                    <span data-v-2c6ed106="" class="spacer3">
+                        <i data-v-2c6ed106=""></i>
+                        <i data-v-2c6ed106=""></i>
+                        <i data-v-2c6ed106=""></i>
+                    </span>
+                    <div class="chat-title">Chatroom</div>
+                </div>
+                <div class="text-content2">
+                    <!-- Categories View -->
+                    <div class="categories-view active">
+                        <div class="categories-header">
+                            <h3>Categories</h3>
+                            <button id="new-category-btn" class="retro-btn">+ New Category</button>
+                        </div>
+                        <ul class="categories-list">
+                            <!-- Categories will be loaded here -->
+                        </ul>
+                    </div>
+
+                    <!-- Threads View -->
+                    <div class="threads-view hidden">
+                        <div class="threads-header">
+                            <div class="header-content">
+                                <button class="back-to-categories retro-btn">← Back</button>
+                                <h3 class="current-category"></h3>
+                            </div>
+                            <button id="new-thread-btn" class="retro-btn">+ New Thread</button>
+                        </div>
+                        <ul class="threads-list">
+                            <!-- Threads will be loaded here -->
+                        </ul>
+                    </div>
+
+                    <!-- New Category Section -->
+                    <div class="new-category-section hidden">
+                        <div class="form-header">
+                            <h3>Create New Category</h3>
+                            <ion-icon name="close-outline" class="close-form-btn"></ion-icon>
+                        </div>
+                        <form id="new-category-form">
+                            <input type="text" id="category-name" placeholder="Category Name" required>
+                            <textarea id="category-description" placeholder="Category Description"></textarea>
+                            <button type="submit" class="retro-btn">Create Category</button>
+                        </form>
+                    </div>
+
+                    <!-- Thread Messages View -->
+                    <div class="messages-view hidden">
+                        <div class="messages-header">
+                            <button class="back-to-threads retro-btn">← Back to Threads</button>
+                            <h3 class="current-thread"></h3>
+                        </div>
+                        <div class="messages-container">
+                            <div class="messages-list">
+                                <!-- Messages will be loaded here -->
+                            </div>
+                            <form id="message-form" class="message-form">
+                                <textarea id="message-input" placeholder="Type your message..." required></textarea>
+                                <button type="submit" class="retro-btn">Send</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- New Thread Section -->
+                <div class="new-thread-section hidden">
+                    <div class="form-header">
+                        <h3>Create New Thread</h3>
+                        <ion-icon name="close-outline" class="close-thread-form-btn"></ion-icon>
+                    </div>
+                    <form id="new-thread-form">
+                        <input type="text" id="thread-title" placeholder="Thread Title" required>
+                        <textarea id="thread-first-message" placeholder="First Message" required></textarea>
+                        <button type="submit" class="retro-btn">Create Thread</button>
+                    </form>
+                </div>
+                
+
+            </div>
+        </div>
+    </div>
+    
+
+        <script src="index.js"></script>
+        <script src="http://localhost:5000/socket.io/socket.io.js"></script>
+        <script src="forum.js"></script>
+        <script src="maincontainer.js"></script>
+        <script src="signup.js"></script>
+        <script src="chat.js"></script>
+</body>
+
+</html>
