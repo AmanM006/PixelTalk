@@ -1,5 +1,4 @@
-const socket = io("http://localhost:5000"); // Connect to backend WebSocket
-// const socket = io('https://your-production-url.com'); // Use your production URL
+const socket = io("https://pixelbackend-production.up.railway.app"); // Connect to backend WebSocket
 document.addEventListener('DOMContentLoaded', async () => {
     console.log('🔍 Forum script loaded');
 
@@ -40,7 +39,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Load categories from MongoDB
     async function loadCategories() {
         try {
-            const response = await fetch('http://localhost:5000/api/categories');
+            const response = await fetch('https://pixelbackend-production.up.railway.app/api/categories');
             if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
 
             const categories = await response.json();
@@ -85,7 +84,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (!categoryName.trim()) return alert("Category name cannot be empty!");
 
         try {
-            const response = await fetch('http://localhost:5000/api/categories', {
+            const response = await fetch('https://pixelbackend-production.up.railway.app/api/categories', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name: categoryName })
@@ -135,7 +134,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.log('📝 Form data:', { name, description });
 
         try {
-            const response = await fetch('http://localhost:5000/api/categories', {
+            const response = await fetch('https://pixelbackend-production.up.railway.app/api/categories', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -196,7 +195,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.log('📝 Thread data:', { categoryId, title, firstMessage });
 
         try {
-            const response = await fetch('http://localhost:5000/api/threads', {
+            const response = await fetch('https://pixelbackend-production.up.railway.app/api/threads', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -255,8 +254,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
         try {
-            console.log('🔄 Fetching threads from:', `http://localhost:5000/api/categories/${categoryId}/threads`);
-            const response = await fetch(`http://localhost:5000/api/categories/${categoryId}/threads`);
+            console.log('🔄 Fetching threads from:', `https://pixelbackend-production.up.railway.app/api/categories/${categoryId}/threads`);
+            const response = await fetch(`https://pixelbackend-production.up.railway.app/api/categories/${categoryId}/threads`);
 
             console.log('🔍 API Response:', {
                 status: response.status,
@@ -352,7 +351,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Modify addMessage function to use Socket.IO
     async function addMessage(threadId, message) {
         try {
-            const response = await fetch(`/api/threads/${threadId}/messages`, {
+            const response = await fetch(`https://pixelbackend-production.up.railway.app/api/threads/${threadId}/messages`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -424,7 +423,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             currentThread.dataset.threadId = threadId;
 
             try {
-                const response = await fetch(`/api/threads/${threadId}`);
+                const response = await fetch(`https://pixelbackend-production.up.railway.app/api/threads/${threadId}`);
                 const thread = await response.json();
 
                 currentThread.textContent = thread.title;
@@ -452,7 +451,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.log('🔍 Thread clicked:', threadId);
 
         try {
-            const response = await fetch(`http://localhost:5000/api/threads/${threadId}`);
+            const response = await fetch(`https://pixelbackend-production.up.railway.app/api/threads/${threadId}`);
             if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
 
             const thread = await response.json();
@@ -477,7 +476,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     async function loadMessages(threadId) {
         try {
             console.log('🔍 Loading messages for thread:', threadId);
-            const response = await fetch(`http://localhost:5000/api/threads/${threadId}/messages`);
+            const response = await fetch(`https://pixelbackend-production.up.railway.app/api/threads/${threadId}/messages`);
             if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
 
             const messages = await response.json();
@@ -523,7 +522,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (!text || !threadId) return;
 
         try {
-            const response = await fetch(`http://localhost:5000/api/threads/${threadId}/messages`, {
+            const response = await fetch(`https://pixelbackend-production.up.railway.app/api/threads/${threadId}/messages`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -673,7 +672,7 @@ function displayMessages(messages) {
 async function loadThread(threadId) {
     try {
         console.log('🔍 Loading thread:', threadId);
-        const response = await fetch(`http://localhost:5000/api/threads/${threadId}`);
+        const response = await fetch(`https://pixelbackend-production.up.railway.app/api/threads/${threadId}`);
 
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
