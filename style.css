@@ -5,7 +5,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    cursor: url(/img/cursor.7a94a6c4.svg),auto!important;        
+    cursor: url(img/cursor.7a94a6c4.svg),auto!important;        
     -moz-osx-font-smoothing: none;
     -webkit-font-smoothing: antialiased;
     image-rendering: pixelated;
@@ -118,7 +118,7 @@ body {
     background-image: linear-gradient(
         rgba(249, 239, 228, 0.9),
         rgba(249, 239, 228, 0.9)
-    ), url('/img/bg.jpg');
+    ), url('img/bg.jpg');
     background-size: cover;
     background-position: center;
 }
