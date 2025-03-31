@@ -1,4 +1,4 @@
-#PixelTalk - A Retro Web Reboot
+**PixelTalk - A Retro Web Reboot**
 
 Project Overview
 
